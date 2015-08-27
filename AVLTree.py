@@ -46,7 +46,6 @@ class AVLTree(object):
         #to-do
         self
 
-
     def inorder(self):
         result = []
 
