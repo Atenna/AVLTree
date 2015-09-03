@@ -21,21 +21,21 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="AVLTree.py" pinned="false" current-in-tab="false">
+      <file leaf-file-name="AVLTree.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/AVLTree.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="50" column="19" selection-start-line="50" selection-start-column="19" selection-end-line="50" selection-end-column="19" />
+            <state vertical-scroll-proportion="0.5968992">
+              <caret line="76" column="53" selection-start-line="76" selection-start-column="53" selection-end-line="76" selection-end-column="53" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Build.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="Build.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Build.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.5271318">
-              <caret line="12" column="25" selection-start-line="12" selection-start-column="25" selection-end-line="12" selection-end-column="25" />
+            <state vertical-scroll-proportion="0.0">
+              <caret line="15" column="10" selection-start-line="15" selection-start-column="10" selection-end-line="15" selection-end-column="10" />
               <folding>
                 <element signature="e#22#32#0" expanded="true" />
               </folding>
@@ -59,8 +59,8 @@
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/Node.py" />
-        <option value="$PROJECT_DIR$/AVLTree.py" />
         <option value="$PROJECT_DIR$/Build.py" />
+        <option value="$PROJECT_DIR$/AVLTree.py" />
       </list>
     </option>
   </component>
@@ -397,14 +397,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$USER_HOME$/.PyCharm40/system/python_stubs/-1442825926/builtins.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.3327338">
-          <caret line="774" column="8" selection-start-line="774" selection-start-column="8" selection-end-line="774" selection-end-column="8" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/AVLTree.py">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -420,21 +412,29 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/AVLTree.py">
+    <entry file="file://$USER_HOME$/.PyCharm40/system/python_stubs/-1442825926/builtins.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="50" column="19" selection-start-line="50" selection-start-column="19" selection-end-line="50" selection-end-column="19" />
+        <state vertical-scroll-proportion="0.33333334">
+          <caret line="774" column="8" selection-start-line="774" selection-start-column="8" selection-end-line="774" selection-end-column="8" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Build.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.5271318">
-          <caret line="12" column="25" selection-start-line="12" selection-start-column="25" selection-end-line="12" selection-end-column="25" />
+        <state vertical-scroll-proportion="0.0">
+          <caret line="15" column="10" selection-start-line="15" selection-start-column="10" selection-end-line="15" selection-end-column="10" />
           <folding>
             <element signature="e#22#32#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/AVLTree.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.5968992">
+          <caret line="76" column="53" selection-start-line="76" selection-start-column="53" selection-end-line="76" selection-end-column="53" />
+          <folding />
         </state>
       </provider>
     </entry>

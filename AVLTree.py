@@ -1,5 +1,6 @@
 __author__ = 'Carmen'
 
+
 class Node(object):
     def __init__(self, key):
         """
@@ -8,7 +9,7 @@ class Node(object):
         self.left = None
         self.right = None
         self.key = key
-
+        self.height = 1
 
     def __str__(self):
         return "%s" % self.key
@@ -26,10 +27,10 @@ class AVLTree(object):
 
     def insert(self, key):
         tree = self.node
-        newnode = Node(key)
+        newNode = Node(key)
 
         if not self.node:
-            self.node = newnode
+            self.node = newNode
             self.node.left = AVLTree()
             self.node.right = AVLTree()
 
@@ -39,13 +40,41 @@ class AVLTree(object):
         elif key > tree.key:
             self.node.right.insert(key)
 
-        # else: key is already in the 3
+        # else: key is already in the tree
 
         self.rebalance()
 
     def rebalance(self):
+        # update height of this ancestor node
+        None
         #to-do
-        self
+
+    def rightRotate(y):
+        #Left Left Case #Left Right Case
+        x = y.left
+        p = x.right
+       # rotations
+        x.right = y
+        y.left = p
+        #update heights
+        y.height = max(y.left.height, y.right.height)+1
+        x.height = max(x.left.height, x.right.height)+1
+
+    def leftRotate(x):
+        #Right Right Case #Right Left Case
+        y = x.right
+        p = y.left
+        #rotation
+        x.right = p
+        y.left = x
+        #update heights
+        y.height = max(y.left.height, y.right.height)+1
+        x.height = max(x.left.height, x.right.height)+1
+
+    def getBalanceFactor(node):
+        if node is None:
+            return 0
+        return (node.left.height - node.right.height)
 
     def inorder(self):
         result = []
