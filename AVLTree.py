@@ -13,6 +13,7 @@ class Node(object):
     def __str__(self):
         return "%s" % self.key
 
+
 class AVLTree(object):
 
     def __init__(self):
