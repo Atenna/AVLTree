@@ -26,19 +26,19 @@ class AVLTree(object):
         return (self.height == 0)
 
     def insert(self, key):
-        tree = self.node
+        root = self.node
         newNode = Node(key)
 
-        if not self.node:
-            self.node = newNode
-            self.node.left = AVLTree()
-            self.node.right = AVLTree()
+        if not root:
+            root = newNode
+            root.left = AVLTree()
+            root.right = AVLTree()
 
-        elif key < tree.key:
-            self.node.left.insert(key)
+        elif key < root.key:
+            root.left.insert(key)
 
-        elif key > tree.key:
-            self.node.right.insert(key)
+        elif key > root.key:
+            root.right.insert(key)
 
         # else: key is already in the tree
 
