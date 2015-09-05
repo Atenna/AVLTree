@@ -47,6 +47,42 @@ class AVLTree(object):
     def rebalance(self):
         # update height of this ancestor node
         None
+        while self.balance > 1 or self.balance < -1:
+            # Left subtree > Right subtree
+            if self.balance > 1:
+                # Left-Right Case
+                #      o
+                #     / \
+                #   o    o
+                #  / \      => left rotation
+                # o   o
+                #    / \
+                #   o   o
+                if self.node.left.balance < 0:
+                    self.leftRotate(self.node.left)
+                    #updateBalance
+                    #updateHeights
+                # Left-Left Case => right rotation
+                self.rightRotate(self.node.left)
+                #updateBalance
+                #updateHeights
+            # Left subtree > Right subtree
+            if self.balance < -1:
+                # Right-Left Case
+                if self.node.right.balance > 0:
+                #      o
+                #     / \
+                #   o    o
+                #       / \      => right rotation
+                #      o   o
+                #    / \
+                #   o   o
+                    self.rightRotate(self.node.right)
+                    #updateHeights
+                    #updateBalances
+                self.leftRotate(self.node.right)
+                #updateHeights
+                #updateBalances
         #to-do
 
     def rightRotate(y):
@@ -70,6 +106,14 @@ class AVLTree(object):
         #update heights
         y.height = max(y.left.height, y.right.height)+1
         x.height = max(x.left.height, x.right.height)+1
+
+    def updateHeights(self):
+        None
+        #to-do
+
+    def updateBalances(self):
+        None
+        #to-do
 
     def getBalanceFactor(node):
         if node is None:
