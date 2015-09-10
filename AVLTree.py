@@ -26,18 +26,22 @@ class AVLTree(object):
         return (self.height == 0)
 
     def insert(self, key):
+
         root = self.node
         newNode = Node(key)
 
         if not root:
-            root = newNode
-            root.left = AVLTree()
-            root.right = AVLTree()
+            print("INSERTING NODE ", key, " AS LEAF")
+            self.node = newNode
+            self.node.left = AVLTree()
+            self.node.right = AVLTree()
 
         elif key < root.key:
+            print("INSERTING NODE ", key, " TO LEFT from ", self.node.key)
             root.left.insert(key)
 
         elif key > root.key:
+            print("INSERTING NODE ", key, " TO RIGHT from", self.node.key)
             root.right.insert(key)
 
         # else: key is already in the tree
@@ -45,8 +49,9 @@ class AVLTree(object):
         self.rebalance()
 
     def rebalance(self):
-        # update height of this ancestor node
-        None
+        # update height of this ancestor node___?
+        self.updateHeight()
+        self.updateBalance()
         #While the tree is not balanced
         while self.balance > 1 or self.balance < -1:
             # Left subtree > Right subtree
@@ -60,17 +65,19 @@ class AVLTree(object):
                 #    / \
                 #   o   o
                 if self.node.left.balance < 0:
+                    print("LEFT subtree > RIGHT -> LEFT ROTATION")
                     self.leftRotate(self.node.left)
-                    self.node.updateBalance()
-                    self.node.updateHeight()
+                    self.updateHeight()
+                    self.updateBalance()
                 # Left-Left Case => right rotation
                 self.rightRotate(self.node.left)
-                self.node.updateBalance()
-                self.node.updateHeight()
+                self.updateHeight()
+                self.updateBalance()
             # Left subtree > Right subtree
             if self.balance < -1:
                 # Right-Left Case
                 if self.node.right.balance > 0:
+                    print("LEFT subtree < RIGHT -> RIGHT ROTATION")
                 #      o
                 #     / \
                 #   o    o
@@ -79,8 +86,8 @@ class AVLTree(object):
                 #    / \
                 #   o   o
                     self.rightRotate(self.node.right)
-                    self.node.updateHeight()
-                    self.node.updateBalance()
+                    self.updateHeight()
+                    self.updateBalance()
                 self.leftRotate(self.node.right)
                 self.node.updateHeight()
                 self.node.updateBalance()
@@ -98,6 +105,7 @@ class AVLTree(object):
         x.height = max(x.left.height, x.right.height)+1
 
     def leftRotate(x):
+        print("LEFT ROTATION")
         #Right Right Case #Right Left Case
         y = x.right
         p = y.left
@@ -109,14 +117,16 @@ class AVLTree(object):
         x.height = max(x.left.height, x.right.height)+1
 
     def updateHeight(self):
+
         # Height of the tree is max height of either left or right subtree +1
         if self.node:
             if self.node.left:
                 self.node.left.updateHeight()
-            else:
+            if self.node.right:
                 self.node.right.updateHeight()
-
+# TO DO, ROTATION, REBALANCING !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
             self.node.height = max(self.node.right.height,self.node.left.height) + 1
+            print("UPDATING HEIGHT OF NODE ", self.node.key, " WITH ", self.node.height)
         else:
             # root
             self.height = -1
@@ -125,7 +135,7 @@ class AVLTree(object):
         if self.node:
             if self.node.left:
                 self.node.left.updateBalance()
-            else:
+            if self.node.right:
                 self.node.right.updateBalance()
             # Balance = Height of Left - Height of Right node
             self.balance = self.node.left.height = self.node.right.height
