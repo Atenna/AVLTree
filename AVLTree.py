@@ -47,6 +47,7 @@ class AVLTree(object):
     def rebalance(self):
         # update height of this ancestor node
         None
+        #While the tree is not balanced
         while self.balance > 1 or self.balance < -1:
             # Left subtree > Right subtree
             if self.balance > 1:
@@ -60,12 +61,12 @@ class AVLTree(object):
                 #   o   o
                 if self.node.left.balance < 0:
                     self.leftRotate(self.node.left)
-                    #updateBalance
-                    #updateHeights
+                    self.node.updateBalance()
+                    self.node.updateHeight()
                 # Left-Left Case => right rotation
                 self.rightRotate(self.node.left)
-                #updateBalance
-                #updateHeights
+                self.node.updateBalance()
+                self.node.updateHeight()
             # Left subtree > Right subtree
             if self.balance < -1:
                 # Right-Left Case
@@ -78,11 +79,11 @@ class AVLTree(object):
                 #    / \
                 #   o   o
                     self.rightRotate(self.node.right)
-                    #updateHeights
-                    #updateBalances
+                    self.node.updateHeight()
+                    self.node.updateBalance()
                 self.leftRotate(self.node.right)
-                #updateHeights
-                #updateBalances
+                self.node.updateHeight()
+                self.node.updateBalance()
         #to-do
 
     def rightRotate(y):
@@ -107,13 +108,30 @@ class AVLTree(object):
         y.height = max(y.left.height, y.right.height)+1
         x.height = max(x.left.height, x.right.height)+1
 
-    def updateHeights(self):
-        None
-        #to-do
+    def updateHeight(self):
+        # Height of the tree is max height of either left or right subtree +1
+        if self.node:
+            if self.node.left:
+                self.node.left.updateHeight()
+            else:
+                self.node.right.updateHeight()
 
-    def updateBalances(self):
-        None
-        #to-do
+            self.node.height = max(self.node.right.height,self.node.left.height) + 1
+        else:
+            # root
+            self.height = -1
+
+    def updateBalance(self):
+        if self.node:
+            if self.node.left:
+                self.node.left.updateBalance()
+            else:
+                self.node.right.updateBalance()
+            # Balance = Height of Left - Height of Right node
+            self.balance = self.node.left.height = self.node.right.height
+        else:
+            # root
+            self.balance = 0
 
     def getBalanceFactor(node):
         if node is None:
